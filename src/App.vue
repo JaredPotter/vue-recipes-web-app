@@ -1,16 +1,17 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <h1>Jared's ATK Recipes</h1>
+    <h1>Jared's Laravel Recipes</h1>
+    <h3>Build using Laravel, mysql, and Vue.</h3>
     <div id="nav">
-      <router-link class="nav-link" to="/recipes">Recipes</router-link> |
-      <router-link class="nav-link" to="/equipment"
+      <router-link class="nav-link" to="/recipes">Recipes</router-link>
+      <!-- | -->
+      <!-- <router-link class="nav-link" to="/equipment"
         >Equipment (coming soon)</router-link
       >
       |
       <router-link class="nav-link" to="/taste-tests"
         >Taste Tests (coming soon)</router-link
-      >
+      > -->
     </div>
 
     <router-view />
@@ -32,6 +33,7 @@ export default {};
   align-items: center;
   color: #2c3e50;
   margin-top: 60px;
+  min-width: 400px;
 
   #nav .nav-link {
     font-size: 1.4rem;

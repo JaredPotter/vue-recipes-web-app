@@ -40,6 +40,7 @@
           </div>
         </div>
       </div>
+
       <div class="word-list" @click.prevent.stop="openWordList()">
         <select
           v-show="isSearchWordListOpen"
@@ -61,11 +62,8 @@
         src="../assets/search-by-algolia-light-background.svg"
         class="delete"
       />
-      <div v-if="isLoadingSearchResults" class="lds-spinner lds-spinner-small">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+
+      <div v-if="isLoadingSearchResults" class="lds-roller">
         <div></div>
         <div></div>
         <div></div>
@@ -102,11 +100,7 @@
         </select>
       </label>
     </div>
-    <div v-if="isLoading" class="lds-spinner">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+    <div v-if="isLoading" class="lds-roller">
       <div></div>
       <div></div>
       <div></div>
@@ -350,7 +344,8 @@ export default {
     display: flex;
     align-items: center;
     margin-bottom: 1rem;
-    width: 40rem;
+    max-width: 40rem;
+    width: 80%;
     position: relative;
 
     input {
@@ -425,7 +420,35 @@ export default {
     }
   }
 
+  @media only screen and (max-width: 768px) {
+    .recipes-page-container {
+      justify-content: center;
+    }
+
+    .search {
+      width: 80%;
+      flex-direction: column;
+
+      input,
+      img {
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    .filter-sort {
+      flex-direction: column;
+
+      label {
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+
   .filter-sort {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+
     margin-bottom: 1rem;
 
     .sort-by {
@@ -458,93 +481,89 @@ export default {
     }
   }
 
-  .lds-spinner {
-    color: official;
+  .lds-roller {
     display: inline-block;
     position: relative;
     width: 80px;
     height: 80px;
   }
-  .lds-spinner div {
+  .lds-roller div {
+    animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
     transform-origin: 40px 40px;
-    animation: lds-spinner 1.2s linear infinite;
   }
-  .lds-spinner div:after {
+  .lds-roller div:after {
     content: ' ';
     display: block;
     position: absolute;
-    top: 3px;
-    left: 37px;
-    width: 6px;
-    height: 18px;
-    border-radius: 20%;
-    background: black;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #000;
+    margin: -4px 0 0 -4px;
   }
-  .lds-spinner div:nth-child(1) {
-    transform: rotate(0deg);
-    animation-delay: -1.1s;
+  .lds-roller div:nth-child(1) {
+    animation-delay: -0.036s;
   }
-  .lds-spinner div:nth-child(2) {
-    transform: rotate(30deg);
-    animation-delay: -1s;
+  .lds-roller div:nth-child(1):after {
+    top: 63px;
+    left: 63px;
   }
-  .lds-spinner div:nth-child(3) {
-    transform: rotate(60deg);
-    animation-delay: -0.9s;
+  .lds-roller div:nth-child(2) {
+    animation-delay: -0.072s;
   }
-  .lds-spinner div:nth-child(4) {
-    transform: rotate(90deg);
-    animation-delay: -0.8s;
+  .lds-roller div:nth-child(2):after {
+    top: 68px;
+    left: 56px;
   }
-  .lds-spinner div:nth-child(5) {
-    transform: rotate(120deg);
-    animation-delay: -0.7s;
+  .lds-roller div:nth-child(3) {
+    animation-delay: -0.108s;
   }
-  .lds-spinner div:nth-child(6) {
-    transform: rotate(150deg);
-    animation-delay: -0.6s;
+  .lds-roller div:nth-child(3):after {
+    top: 71px;
+    left: 48px;
   }
-  .lds-spinner div:nth-child(7) {
-    transform: rotate(180deg);
-    animation-delay: -0.5s;
+  .lds-roller div:nth-child(4) {
+    animation-delay: -0.144s;
   }
-  .lds-spinner div:nth-child(8) {
-    transform: rotate(210deg);
-    animation-delay: -0.4s;
+  .lds-roller div:nth-child(4):after {
+    top: 72px;
+    left: 40px;
   }
-  .lds-spinner div:nth-child(9) {
-    transform: rotate(240deg);
-    animation-delay: -0.3s;
+  .lds-roller div:nth-child(5) {
+    animation-delay: -0.18s;
   }
-  .lds-spinner div:nth-child(10) {
-    transform: rotate(270deg);
-    animation-delay: -0.2s;
+  .lds-roller div:nth-child(5):after {
+    top: 71px;
+    left: 32px;
   }
-  .lds-spinner div:nth-child(11) {
-    transform: rotate(300deg);
-    animation-delay: -0.1s;
+  .lds-roller div:nth-child(6) {
+    animation-delay: -0.216s;
   }
-  .lds-spinner div:nth-child(12) {
-    transform: rotate(330deg);
-    animation-delay: 0s;
+  .lds-roller div:nth-child(6):after {
+    top: 68px;
+    left: 24px;
   }
-  @keyframes lds-spinner {
+  .lds-roller div:nth-child(7) {
+    animation-delay: -0.252s;
+  }
+  .lds-roller div:nth-child(7):after {
+    top: 63px;
+    left: 17px;
+  }
+  .lds-roller div:nth-child(8) {
+    animation-delay: -0.288s;
+  }
+  .lds-roller div:nth-child(8):after {
+    top: 56px;
+    left: 12px;
+  }
+  @keyframes lds-roller {
     0% {
-      opacity: 1;
+      transform: rotate(0deg);
     }
     100% {
-      opacity: 0;
+      transform: rotate(360deg);
     }
-  }
-
-  .lds-spinner-small {
-    height: 40px;
-    width: 40px;
-  }
-
-  .lds-spinner-small div {
-    transform-origin: 20px 20px;
-    animation: lds-spinner 1.2s linear infinite;
   }
 }
 </style>
