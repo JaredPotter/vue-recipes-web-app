@@ -19,7 +19,7 @@
               :key="suggestion.id"
             >
               <div
-                class="suggetion-item"
+                class="suggestion-item"
                 :class="{ selected: index === selected }"
                 @mousedown="selectRecipe(suggestion.id)"
                 ref="suggestionItem"
@@ -345,7 +345,6 @@ export default {
     align-items: center;
     margin-bottom: 1rem;
     max-width: 40rem;
-    // width: 80%;
     position: relative;
 
     input {
@@ -362,7 +361,7 @@ export default {
       max-height: 12rem;
       width: 100%;
 
-      .suggetion-item {
+      .suggestion-item {
         cursor: pointer;
         padding-left: 5px;
         padding-right: 5px;
@@ -433,9 +432,13 @@ export default {
       img {
         margin-bottom: 0.5rem;
       }
+      label {
+        display: flex;
+        justify-content: center;
+      }
 
       input {
-        width: 100%;
+        width: 90%;
       }
     }
 
