@@ -109,9 +109,9 @@ export default {
 
 <style lang="scss">
 .recipe-page-container {
-  width: 50rem;
   display: flex;
   justify-content: center;
+  width: 50rem;
 
   .title {
     font-size: 3rem;
@@ -222,6 +222,13 @@ export default {
 
   .image {
     width: 100%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .recipe-page-container {
+    width: 90%;
+    flex-direction: column;
   }
 }
 </style>
