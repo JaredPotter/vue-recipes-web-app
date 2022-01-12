@@ -74,7 +74,7 @@
         <div></div>
       </div>
     </div>
-    <div class="filter-sort">
+    <div v-if="!isLoading" class="filter-sort">
       <label>
         Sort By Publish Date or Title:
         <select @change="sortByChange($event)" class="sort-by">
