@@ -345,7 +345,7 @@ export default {
     align-items: center;
     margin-bottom: 1rem;
     max-width: 40rem;
-    width: 80%;
+    // width: 80%;
     position: relative;
 
     input {
@@ -426,12 +426,16 @@ export default {
     }
 
     .search {
-      width: 80%;
       flex-direction: column;
+      margin-bottom: 0rem;
 
       input,
       img {
         margin-bottom: 0.5rem;
+      }
+
+      input {
+        width: 100%;
       }
     }
 
@@ -440,6 +444,10 @@ export default {
 
       label {
         margin-bottom: 0.5rem;
+
+        .sort-by {
+          width: 100%;
+        }
       }
     }
   }
